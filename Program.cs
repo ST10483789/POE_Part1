@@ -19,6 +19,7 @@ namespace POE_Part1
 
             Console.Write("Enter your name: ");
             string name = Console.ReadLine();
+            Console.WriteLine("Type 'exit' to quit the chatbot");
 
             while (string.IsNullOrWhiteSpace(name))
             {
