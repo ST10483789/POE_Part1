@@ -45,15 +45,14 @@ namespace POE_Part1
                 Console.Write("\n You: ");
                 Console.ResetColor();
 
-                string question = Console.ReadLine().ToLower();
+                string question = Console.ReadLine();
 
                 if (string.IsNullOrWhiteSpace(question))
                 {
-                    TypeText(" Chatbot: Please enter something.");
-                    continue;
+                    Console.WriteLine("Chatbot: please enter something.");continue;
                 }
 
-                if (question == "exit")
+                question = question.ToLower();
                 {
                     TypeText(" Chatbot: Goodbye! Stay safe online.");
                     Console.WriteLine("=========================================");
