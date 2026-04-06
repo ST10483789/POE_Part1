@@ -30,13 +30,16 @@ namespace POE_Part1
             TypeText($"\n Welcome {name}! Ask me about cybersecurity.");
             Console.WriteLine("-----------------------------------------");
 
-            string[] keywords = { "password", "phishing", "browsing" };
+            string[] keywords = { "password", "phishing", "browsing", "malware","vpn","2fa" };
 
             string[] responses =
             {
                 "Use strong passwords with a mix of letters, numbers, and symbols.",
                 "Be careful of phishing emails. Do not click suspicious links.",
-                "Always browse secure websites (https) and avoid unknown downloads."
+                "Always browse secure websites (https) and avoid unknown downloads.",
+                "Malware is harmful software. Always install antivirus and avoid uknown files.", 
+                "A VPN helps protect your privacy online by encrypting  your internet connection.",
+                "Two factor Authentication (2FA) adds an extra layer of security to your account"
             };
 
             while (true)
