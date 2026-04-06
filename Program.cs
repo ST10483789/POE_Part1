@@ -53,6 +53,8 @@ namespace POE_Part1
                 }
 
                 question = question.ToLower();
+
+                if (question == "exit")
                 {
                     TypeText(" Chatbot: Goodbye! Stay safe online.");
                     Console.WriteLine("=========================================");
