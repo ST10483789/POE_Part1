@@ -1,0 +1,30 @@
+# Cybersecurity Awareness Chatbot
+
+##  Description
+This is a C# console chatbot designed to educate users about basic cybersecurity concepts such as passwords, phishing, safe browsing, malware, VPNs, and 2FA.
+
+## Features
+- ASCII hacker-style banner
+- Voice greeting using WAV file
+- Interactive chatbot
+- Keyword recognition system
+- Typing animation effect
+- Input validation
+
+## Technologies Used
+- C#
+- .NET Console Application
+- System.Media (for audio)
+
+## How to Run
+1. Open the project in Visual Studio
+2. Run the program
+3. Enter your name
+4. Ask questions about cybersecurity (e.g. phishing, password, malware)
+5. Type 'exit' to quit
+
+##  Screenshot
+(Add your CI screenshot here)
+
+## 🎥 Video
+(Add your YouTube link here)
