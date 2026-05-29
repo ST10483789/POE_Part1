@@ -1,134 +1,17 @@
-﻿using System;
-using System.Media;
-using System.Threading;
-
-namespace POE_Part1
+namespace POE_Part2
 {
-    internal class Program
+    internal static class Program
     {
-        static void Main(string[] args)
+        /// <summary>
+        ///  The main entry point for the application.
+        /// </summary>
+        [STAThread]
+        static void Main()
         {
-            Console.Title = "Cybersecurity Awareness Chatbot";
-
-            PlayVoiceGreeting();
-            ShowBanner();
-
-            Console.WriteLine("=========================================");
-            Console.WriteLine("     CYBERSECURITY AWARENESS CHATBOT     ");
-            Console.WriteLine("=========================================\n");
-
-            Console.Write("Enter your name: ");
-            string name = Console.ReadLine();
-            Console.WriteLine("Type 'exit' to quit the chatbot");
-
-            while (string.IsNullOrWhiteSpace(name))
-            {
-                Console.Write("Name cannot be empty. Enter your name: ");
-                name = Console.ReadLine();
-            }
-
-            TypeText($"\n Welcome {name}! Ask me about cybersecurity.");
-            Console.WriteLine("-----------------------------------------");
-
-            string[] keywords = { "password", "phishing", "browsing", "malware","vpn","2fa" };
-
-            string[] responses =
-            {
-                "Use strong passwords with a mix of letters, numbers, and symbols.",
-                "Be careful of phishing emails. Do not click suspicious links.",
-                "Always browse secure websites (https) and avoid unknown downloads.",
-                "Malware is harmful software. Always install antivirus and avoid uknown files.", 
-                "A VPN helps protect your privacy online by encrypting  your internet connection.",
-                "Two factor Authentication (2FA) adds an extra layer of security to your account"
-            };
-
-            while (true)
-            {
-                Console.ForegroundColor = ConsoleColor.Yellow;
-                Console.Write("\n You: ");
-                Console.ResetColor();
-
-                string question = Console.ReadLine();
-
-                if (string.IsNullOrWhiteSpace(question))
-                {
-                    Console.WriteLine("Chatbot: please enter something.");continue;
-                }
-
-                question = question.ToLower();
-
-                if (question == "exit")
-                {
-                    TypeText(" Chatbot: Goodbye! Stay safe online.");
-                    Console.WriteLine("=========================================");
-                    break;
-                }
-
-                bool found = false;
-
-                string[] words = question.Split(' ');
-
-                foreach (string word in words)
-                {
-                    for (int i = 0; i < keywords.Length; i++)
-                    {
-                        if (word == keywords[i])
-                        {
-                            Console.ForegroundColor = ConsoleColor.Cyan;
-                            TypeText($" Chatbot: {responses[i]}");
-                            Console.ResetColor();
-
-                            found = true;
-                        }
-                    }
-                }
-
-                if (!found)
-                {
-                    TypeText("Chatbot: I didn’t quite understand that. Try keywords like password, phishing, or browsing.");
-                }
-
-                Console.WriteLine("-----------------------------------------");
-            }
-        }
-
-        static void ShowBanner()
-        {
-            Console.ForegroundColor = ConsoleColor.Green;
-
-            Console.WriteLine(@"
-██╗  ██╗ █████╗  ██████╗██╗  ██╗███████╗██████╗ 
-██║  ██║██╔══██╗██╔════╝██║ ██╔╝██╔════╝██╔══██╗
-███████║███████║██║     █████╔╝ █████╗  ██████╔╝
-██╔══██║██╔══██║██║     ██╔═██╗ ██╔══╝  ██╔══██╗
-██║  ██║██║  ██║╚██████╗██║  ██╗███████╗██║  ██║
-╚═╝  ╚═╝╚═╝  ╚═╝ ╚═════╝╚═╝  ╚═╝╚══════╝╚═╝  ╚═╝
-");
-
-            Console.ResetColor();
-        }
-
-        static void TypeText(string text)
-        {
-            foreach (char c in text)
-            {
-                Console.Write(c);
-                Thread.Sleep(30);
-            }
-            Console.WriteLine();
-        }
-
-        static void PlayVoiceGreeting()
-        {
-            try
-            {
-                SoundPlayer player = new SoundPlayer("greeting.wav");
-                player.PlaySync();
-            }
-            catch
-            {
-                Console.WriteLine("(Voice greeting failed to play)");
-            }
+            // To customize application configuration such as set high DPI settings or default font,
+            // see https://aka.ms/applicationconfiguration.
+            ApplicationConfiguration.Initialize();
+            Application.Run(new Form1());
         }
     }
 }
